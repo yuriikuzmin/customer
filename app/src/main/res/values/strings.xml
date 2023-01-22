@@ -9,5 +9,8 @@
     <string name="btn_save_order">Отправить заявку</string>
     <string name="btn_order">Подать еще заявку</string>
     <string name="btn_pay_order">Оплатить заявку</string>
-
+    <string name="tv_carta">0000 0000 0000 0000</string>
+    <string name="btn_copy">Копировать  № карты</string>
+    <string name="tv_number_carta">№ карты:</string>
+    <string name="tv_pay">Скопируйте в буфер обмена номер банковской карты и нажнмите кнопку ОПЛАТИТЬ ЗАЯВКУ. В открывшемся окне выберите свой банк и оплатите выполненые работы по вашей заявке</string>
 </resources>

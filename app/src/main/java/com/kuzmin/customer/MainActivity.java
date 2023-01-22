@@ -52,6 +52,10 @@ public class MainActivity extends AppCompatActivity {
         btn_pay.setVisibility(View.GONE);
 
     }
+    public  void onClickPayOrder(View view){
+        Intent intent=new Intent(MainActivity.this, PayOrder.class);
+        startActivity(intent);
+    }
 
     public void onClickSaveOrder(View view) {
         String problem = et_problem.getText().toString();
