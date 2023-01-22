@@ -7,6 +7,7 @@
     <string name="hint_phone">Контактный телефон</string>
     <string name="hint_deadline">Дата выполнения работ: 2023-01-01</string>
     <string name="btn_save_order">Отправить заявку</string>
-
+    <string name="btn_order">Подать еще заявку</string>
+    <string name="btn_pay_order">Оплатить заявку</string>
 
 </resources>

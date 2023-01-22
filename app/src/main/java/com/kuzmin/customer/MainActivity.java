@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -26,6 +27,7 @@ import java.net.URLEncoder;
 public class MainActivity extends AppCompatActivity {
     TextView text_order;
     EditText et_problem, et_address, et_name, et_phone, et_date;
+    Button btn_save, btn_order, btn_pay;
 
 
     @Override
@@ -43,6 +45,11 @@ public class MainActivity extends AppCompatActivity {
         et_name = (EditText) findViewById(R.id.et_name);
         et_phone = (EditText) findViewById(R.id.et_phone);
         et_date = (EditText) findViewById(R.id.et_deadline);
+        btn_save=(Button) findViewById(R.id.btn_save_order);
+        btn_order=(Button) findViewById(R.id.btn_order);
+        btn_pay=(Button) findViewById(R.id.btn_pay_order);
+        btn_order.setVisibility(View.GONE);
+        btn_pay.setVisibility(View.GONE);
 
     }
 
@@ -54,6 +61,13 @@ public class MainActivity extends AppCompatActivity {
         String date = et_date.getText().toString();
         new OrderData(MainActivity.this, text_order).execute(problem, address, name, phone, date);
         Log.d("LOG", problem+", "+address+", "+name+", "+phone+", "+date);
+    }
+
+    public  void onClickOrder(View view){
+        Intent intent=new Intent(MainActivity.this, MainActivity.class);
+        startActivity(intent);
+        btn_order.setVisibility(View.GONE);
+        btn_pay.setVisibility(View.GONE);
     }
 
     public class OrderData extends AsyncTask<String, Void, String> {
@@ -100,6 +114,7 @@ public class MainActivity extends AppCompatActivity {
 
                 String line;
                 while ((line = reader.readLine()) != null) {
+
                     sb.append(line);
                     break;
                 }
@@ -120,6 +135,9 @@ public class MainActivity extends AppCompatActivity {
             et_name.setVisibility(View.GONE);
             et_phone.setVisibility(View.GONE);
             et_problem.setVisibility(View.GONE);
+            btn_save.setVisibility(View.GONE);
+            btn_order.setVisibility(View.VISIBLE);
+            btn_pay.setVisibility(View.VISIBLE);
             this.message_order.setText(data);
             Log.d("LOG", "Проверили на содержание ответ" + data.toString());
         }
